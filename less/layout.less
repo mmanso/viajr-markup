@@ -1,0 +1,67 @@
+// Box sizing
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+     -moz-box-sizing: @boxmodel;
+          box-sizing: @boxmodel;
+}
+
+.header-roteiro {
+	height: 380px;
+	.box-sizing(border-box);
+	width: 100%;
+	background: url("http://dimac.org/wp-content/gallery/galerija1/8184280724_d7d7fef228_o.jpg");
+	background-size: cover;
+	padding-top: 215px;
+
+	.mosaico {
+		width: 280px;
+		
+		li {
+			float: left;
+			width: 139px;
+			height: 139px;
+			background-size: cover;
+			border-bottom: 1px solid #FFF;
+		}
+
+		.thumb-01 {
+			background: url("http://2.bp.blogspot.com/-Im-Ib-u_mhM/UanUEuLuTeI/AAAAAAAA1Kk/o5TWSjdhHQU/s640/lake_bled_slovenia_600x400.jpg") center center;			
+		}
+
+		.thumb-02 {
+			background: url("https://farm4.staticflickr.com/3858/14750333809_af0d5e5b89.jpg") center center;
+		}
+
+		.thumb-03 {
+			background: url("https://farm4.staticflickr.com/3858/14750333809_af0d5e5b89.jpg") center center;
+		}
+
+		.thumb-04 {
+			background: url("http://t-1.tuzhan.com/6beea1d2bb3b/p-2/l/2013/12/01/22/19a07c3e1eeb4379852d8e740bcb53de.jpg") center center;
+		}
+
+		.thumb-05 {
+			background: url("http://4.bp.blogspot.com/_-zOrAL1V5Jg/TRC_iNTWCkI/AAAAAAAAI1g/SOA3FoMNyL8/s640/bled+island+11.jpg") center center;
+		}
+
+		.thumb-06 {
+			background: url("http://transcarpathian-tour.com/wp-content/uploads/2013/08/Eger-Castle2.jpg") center center;
+		}
+
+		.thumb-01, .thumb-03, .thumb-05 {
+			border-right: 1px solid #FFF;
+		}
+	}
+
+	.sobre-roteiro {
+		padding-left: 30px;
+
+		h1 {
+			color: #FFF;
+			margin-top: 0;
+			font-size: 50px;
+			font-family: 'Droid Serif', serif;
+			font-weight: bold;
+		}
+	}
+}
