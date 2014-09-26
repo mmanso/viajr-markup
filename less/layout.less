@@ -7,19 +7,72 @@ h1, h2 {
 	font-weight: 700;
 }
 
+.coluna {
+	display: none;
+
+	@media (min-width: @screen-md-min) {
+		display: block;
+	}
+}
+
 .header-roteiro {
-	height: 380px;
 	.box-sizing(border-box);
 	width: 100%;
-	background: url("http://dimac.org/wp-content/gallery/galerija1/8184280724_d7d7fef228_o.jpg") center center;
-	background-size: cover;
-	padding-top: 205px;
+	padding-top: 155px;
 	position: relative;
+
+	@media (min-width: @screen-sm-min) {
+		padding-top: 205px;
+	}
+
+	.editar-roteiro {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		z-index: 3;
+	}
+
+	.mascara {
+		position: absolute;
+		width: 100%;
+		height: 380px;
+		top: 0;
+		left: 0;
+		background: url("http://dimac.org/wp-content/gallery/galerija1/8184280724_d7d7fef228_o.jpg") center center;	
+		background-size: cover;
+
+		&:after {
+			position: absolute;
+			content: "";
+			width: 100%;
+			height: 100%;
+			top: 0; 
+			left: 0;
+			background: @preto;
+			.opacity(0.4);
+			z-index: 0;
+		}
+	}
 
 	.mosaico {
 		width: 100%;
 		max-width: 280px;
 		position: absolute;
+		left: 0;
+
+		@media (min-width: @screen-sm-min) {
+			left: -110px;
+			width: 150%;
+		}
+
+		@media (min-width: @screen-md-min) {
+			left: -40px;
+			width: 100%
+		}
+
+		@media (min-width: @screen-lg-min) {
+			left: 0px;
+		}
 		
 		li {
 			float: left;
@@ -64,8 +117,6 @@ h1, h2 {
 	}
 
 	.sobre-roteiro {
-		margin-left: -25px;
-
 		h1 {
 			color: @branco;
 			margin-top: 0;
@@ -79,15 +130,25 @@ h1, h2 {
 	}
 
 	.sobre-roteiro, .descricao-roteiro {
-		margin-left: -15px;
-		padding-left: 0;
+		padding-left: 20px;
+		margin-left: 0;
+
+		@media (min-width: @screen-sm-min) {
+			padding-left: 0px;
+			margin-left: -15px;
+		}
 	}
 
 	.descricao-roteiro {
-		margin: 35px 0 55px 0;
-		padding: 0 30px 25px 0;
-		border-bottom: 1px solid @cinza-claro;
+		margin-top: 35px;
+		margin-bottom: 55px;
+		padding: 0 30px 25px 20px;
 		height: 220px;
+
+		@media (min-width: @screen-sm-min) {
+			padding: 0 30px 25px 0;
+			margin: 35px 0 55px -15px;
+		}
 
 		.label-roteiro {
 			display: block;
@@ -106,16 +167,6 @@ h1, h2 {
 	}
 }
 
-.mascara {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: @preto;
-	.opacity(0.4);
-}
-
 .colaborador-avatar {
 	width: 40px;
 	height: 40px;
@@ -131,11 +182,15 @@ h1, h2 {
 	padding: 18px 0 0 10px;
 }
 
+.container-fluid-max {
+	border-left: 1px solid @cinza-claro;
+}
+
 .destino {
 	.barra-titulo {
 		background: @azul-claro;
-		border-top: 1px solid @cinza-claro;
-		border-bottom: 1px solid @cinza-claro;
+		border-top: 1px solid @azul-claro;
+		border-bottom: 1px solid @azul-claro;
 
 		h2 {
 			font-size: @font-size-h2;
@@ -151,15 +206,17 @@ h1, h2 {
 
 	.dia-card {
 		height: 300px;
-		border-right: 1px solid @cinza-claro;
+		border: 1px solid @cinza-claro;
+		border-top: none;
+		border-left: none;
 		color: @branco;
+		padding-top: 70px;
 
 		.dia-label {
 			font-size: 32px;
 			font-family: @font-family-titles;
 			display: block;
 			font-weight: 300;
-			margin-top: 70px;
 		}
 
 		.dia-valor {
@@ -184,14 +241,48 @@ h1, h2 {
 	.dia-novo {
 		background: @quase-branco;
 
-		.btn {
-			.opacity(.5);
+		img {
+			display: block;
+			margin: 0 auto;
+			height: 70px;
+			margin-bottom: 33px;
 		}
 	}
 
 	.dia-cheio {
-		background: url("http://4.bp.blogspot.com/_-zOrAL1V5Jg/TRC_iNTWCkI/AAAAAAAAI1g/SOA3FoMNyL8/s640/bled+island+11.jpg") center center;
-		background-size: cover;
 		position: relative;
+		z-index: 1;
+		background: @preto;
+
+		.thumb-atividade {
+			background-size: cover;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0; 
+  			left: 0;
+			.opacity(0.8);
+			z-index: -1;
+		}
+
+		.dia-atividades {
+			display: block;
+			margin-top: 50px;
+		}
+	}
+}
+
+.novo-destino {
+	margin: 60px 0 120px 0;
+	position: relative;
+
+	&:before {
+		content:"";
+		border-top: 1px solid @cinza-claro;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 17px;
+		z-index: -1;
 	}
 }
