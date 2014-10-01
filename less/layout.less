@@ -117,15 +117,30 @@ h1, h2 {
 	}
 
 	.sobre-roteiro {
+		position: relative;
+		height: 225px;
+
+		@media (min-width: @screen-md-min) {
+		  height: 175px;
+		}
+
+		@media (min-width: @screen-sm-min) {
+		  height: 175px;
+		}
+
 		h1 {
 			color: @branco;
 			margin-top: 0;
 			font-size: @font-size-h1;
+			position: absolute;
+			bottom: 60px;
 		}
 
 		.resumo-roteiro {
 			color: @branco;
 			letter-spacing: 0.04em;
+			position: absolute;
+			bottom: 20px;
 		}
 	}
 
