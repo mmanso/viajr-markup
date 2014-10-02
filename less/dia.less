@@ -1,0 +1,430 @@
+/* Dia */
+
+@manha: #f1c40f;
+@tarde: #e67e22;
+@noite: #3c046c;
+
+.vs-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	.vs-header {
+		position: relative;
+		z-index: 200;
+		margin: 0 auto;
+		padding: 2em;
+		width: 80%;
+		-webkit-backface-visibility: hidden;
+		background: url("http://api.ning.com/files/DmWKX8GKoMmcESxL7zkL5KfvPP592ErjWqm5wERGhBStJyJOcJ4q-EWrFf9mrZT1dAeVgDxecKdSDV70rYb13Ay0gWevhcpK/riodejaneiro.jpg") center center;	
+		background-size: cover;
+
+		&:before {
+			content: "";
+			width: 0;
+			height: 0;
+			border-style: inset;
+			border-width: 10px 8px 0 8px;
+			border-color: #000000 transparent transparent transparent;
+			-webkit-transform:rotate(360deg);
+			position: absolute;
+			bottom: -10px;
+			left: 49.2%;
+			.opacity(.5);
+		}
+
+		&:after {
+			position: absolute;
+			content: "";
+			width: 100%;
+			height: 230px;
+			top: 0; 
+			left: 0;
+			background: @preto;
+			.opacity(0.4);
+			z-index: -1;
+		}
+
+		h1 {
+			-webkit-backface-visibility: hidden;
+			color: @branco;
+			font-size: @font-size-h1;
+			margin: 15px 0;
+
+			span {
+				color: @cinza-claro;
+				font-size: @font-size-small;
+				font-family: @font-family-sans-serif;
+			}
+		}
+
+		.vs-nav {
+			position: relative;
+			display: block;
+			margin: 0 auto;
+			margin-top: 50px;
+			padding: 0;
+			list-style: none;
+
+			li {
+				display: inline-block;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.no-touch .vs-container {
+	overflow-x: hidden;
+}
+
+.vs-triplelayout {
+	.vs-nav {
+		width: 33.33%;
+		height: 45px;
+
+		li {
+			position: absolute;
+			visibility: hidden;
+			width: 100%;
+		}
+	}
+}
+
+.vs-nav li a {
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+	padding: 10px 0;
+	outline: none;
+	text-decoration: none;
+	font-size: @font-size-h3;
+	font-family: @font-family-titles;
+	font-weight: 700;
+	color: @branco;
+	.opacity(0.6);
+	-webkit-transition: border-color 0.3s, color 0.3s;
+	transition: border-color 0.3s, color 0.3s;
+}
+
+.vs-nav li a:hover,
+.vs-nav li a:focus,
+.vs-triplelayout .vs-nav .vs-nav-current a,
+.vs-container.vs-move-left .vs-nav-right a,
+.vs-container.vs-move-right .vs-nav-left a {
+	.opacity(1);
+	color: @branco;
+}
+
+.vs-container.vs-move-left .vs-nav-current a,
+.vs-container.vs-move-right .vs-nav-current a {
+	color: @branco;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-left,
+.vs-triplelayout .vs-nav .vs-nav-right,
+.vs-triplelayout .vs-nav .vs-nav-left-outer,
+.vs-triplelayout .vs-nav .vs-nav-right-outer,
+.vs-triplelayout .vs-nav .vs-nav-current {
+	visibility: visible;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-current {
+	left: 0%;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-left {
+	left: -100%;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-right {
+	left: 100%;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-right-outer {
+	left: 200%;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-left-outer {
+	left: -200%;
+}
+
+.vs-container.vs-move-left .vs-nav-left,
+.vs-container.vs-move-left .vs-nav-left-outer,
+.vs-container.vs-move-left .vs-nav-current,
+.vs-container.vs-move-left .vs-nav-right,
+.vs-container.vs-move-left .vs-nav-right-outer {
+	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+	transition: transform 0.5s, opacity 0.5s;
+	-webkit-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0);
+}
+
+.vs-container.vs-move-right .vs-nav-left,
+.vs-container.vs-move-right .vs-nav-left-outer,
+.vs-container.vs-move-right .vs-nav-current,
+.vs-container.vs-move-right .vs-nav-right,
+.vs-container.vs-move-right .vs-nav-right-outer {
+	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+	transition: transform 0.5s, opacity 0.5s;
+	-webkit-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);	
+}
+
+.vs-container.vs-move-left .vs-nav-left,
+.vs-container.vs-move-right .vs-nav-right {
+	opacity: 0;
+}
+
+.vs-wrapper {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	min-height: 100%;
+	width: 100%;
+}
+
+.vs-wrapper > section {
+	z-index: 1;
+	min-height: 100%;
+	background-position: 100% 0;
+	background-repeat: no-repeat;
+}
+
+.vs-triplelayout .vs-wrapper > section {
+	position: absolute;
+	top: 0;
+	left: 10%;
+	visibility: hidden;
+	padding: 0 0 100px;
+	width: 80%;
+	-webkit-backface-visibility: hidden;
+}
+
+.vs-triplelayout .vs-wrapper > section:not(.vs-current) {
+	overflow: hidden;
+	height: 100%;
+}
+
+.vs-triplelayout .vs-wrapper .vs-left,
+.vs-triplelayout .vs-wrapper .vs-left-outer,
+.vs-triplelayout .vs-wrapper .vs-current,
+.vs-triplelayout .vs-wrapper .vs-right,
+.vs-triplelayout .vs-wrapper .vs-right-outer {
+	visibility: visible;
+}
+
+.vs-triplelayout .vs-wrapper .vs-left {
+	left: -70%; /* 80 - 10 */
+}
+
+.vs-triplelayout .vs-wrapper .vs-left-outer {
+	left: -150%; /* - 70 - 80 */
+}
+
+.vs-triplelayout .vs-wrapper .vs-current {
+	position: relative;
+	z-index: 100;
+}
+
+.vs-triplelayout .vs-wrapper .vs-right {
+	left: 90%; /* 80 + 10 */
+}
+
+.vs-triplelayout .vs-wrapper .vs-right-outer {
+	left: 170%; /* 90 + 80 */
+}
+
+.vs-container.vs-move-left .vs-left,
+.vs-container.vs-move-left .vs-current,
+.vs-container.vs-move-left .vs-right,
+.vs-container.vs-move-left .vs-right-outer {
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0);
+}
+
+.vs-container.vs-move-right .vs-left,
+.vs-container.vs-move-right .vs-left-outer,
+.vs-container.vs-move-right .vs-current,
+.vs-container.vs-move-right .vs-right {
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);
+}
+
+.vs-sidenav div {
+	position: fixed;
+	top: 0;
+	z-index: 500;
+	width: 10%;
+	height: 100%;
+	background: rgba(0,0,0,0.05);
+	cursor: pointer;
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
+}
+
+.vs-sidenav div:hover {
+	background: rgba(0,0,0,0.1);
+}
+
+.vs-sidenav .vs-sidenav-left {
+	left: 0px;
+}
+
+.vs-sidenav .vs-sidenav-right {
+	right: 0px;
+}
+
+/* inner content */
+
+.manha {
+	background: @manha;
+	padding-top: 6px;
+}
+
+.tarde {
+	background: @tarde;
+}
+
+.noite {
+	background: @noite;
+}
+
+
+.vs-content {
+	position: relative;
+	margin: auto;
+	padding: 50px 0;
+	width: 95%;
+	text-align: left;
+
+	p {
+		line-height: 1.8em;
+		text-align: justify;
+	}
+
+	.horario-dia {
+		border-radius: 45px;
+		width: 45px;
+		height: 45px;
+		margin: 0 auto;
+		text-align: center;
+		margin-bottom: 15px;
+
+		img {
+			width: 30px;
+		}
+	}
+
+	.coluna-esquerda {
+		border-right: 1px solid @cinza-claro;
+		padding-right: 35px;
+		padding-left: 65px;
+		text-align: right;
+
+		.atracao-foto {
+			background-size: cover;
+			height: 385px;
+			margin-top: 20px;
+			min-width: 385px;
+		}
+
+		.atracao-ficha {
+			background: @quase-branco;
+			border-bottom: 3px solid @azul-claro;
+			padding: 30px;
+			min-width: 385px;
+
+			h3 {
+				margin-top: 0;
+				font-size: @font-size-h3;
+			}
+		}
+	}
+
+	.coluna-direita {
+		padding-left: 35px;
+		padding-right: 65px;
+		position: relative;
+
+		.horario-ponto {
+			border-radius: 30px;
+			width: 30px;
+			height: 30px;
+			border: 9px solid @branco;
+			margin-top: 50px;
+			position: absolute;
+			left: -16px;
+		}
+
+		.horario-marcador {
+			position: absolute;
+			left: -100px;
+			top: 47px;
+			background: @branco;
+			padding: 5px 20px 5px 10px;
+
+			p {
+				font-size: @font-size-small;
+				margin: 0;
+				font-weight: bold;
+			}
+		}
+
+		h2 {
+			color: @vermelho;
+			font-size: @font-size-h4;
+			margin-top: 54px;
+		}
+	}
+}
+
+/* Media queries */
+@media screen and (max-width: 72.875em) {
+
+	.vs-header,
+	.vs-wrapper {
+		font-size: 80%;
+	}
+
+	.vs-content {
+		width: 85%;
+	}
+
+	.vs-content h2 {
+		font-size: 1.8em;
+	}
+
+	.vs-nav li a {
+		width: 160px;
+	}
+}
+
+@media screen and (max-width: 45.25em) {
+
+	.vs-container > header h1 {
+		margin-bottom: 0;
+	}
+
+	.vs-content h2 {
+		margin: 0 0 1em;
+	}
+
+	.vs-wrapper {
+		font-size: 80%;
+	}
+
+	.vs-triplelayout .vs-nav li a {
+		width: auto;
+		font-size: 70%;
+	}
+
+	.vs-wrapper > section {
+		background-position: 0 28em;
+		background-size: 100%;
+	}
+}
