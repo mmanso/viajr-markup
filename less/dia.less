@@ -4,6 +4,22 @@
 @tarde: #e67e22;
 @noite: #3c046c;
 
+.rodape-fixo {
+	width: 100%;
+	height: 75px;
+	background: rgba(255,255,255,0.8);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 501;
+	.box-shadow(0 3px 10px 0 rgba(10,10,10,0.3));
+	text-align: center;
+
+	a { 
+		margin-top: 20px;
+	}
+}
+
 .vs-container {
 	position: relative;
 	width: 100%;
@@ -298,9 +314,10 @@
 .vs-content {
 	position: relative;
 	margin: auto;
-	padding: 50px 0;
+	margin-top: 50px;
 	width: 95%;
 	text-align: left;
+	background: url("../imgs/bg-dia.jpg") center center repeat-y;
 
 	p {
 		line-height: 1.8em;
@@ -308,77 +325,79 @@
 	}
 
 	.horario-dia {
-		border-radius: 45px;
-		width: 45px;
-		height: 45px;
+		border-radius: 65px;
+		width: 65px;
+		height: 65px;
 		margin: 0 auto;
 		text-align: center;
-		margin-bottom: 15px;
+		border: 10px solid @branco;
 
 		img {
 			width: 30px;
 		}
 	}
 
-	.coluna-esquerda {
-		border-right: 1px solid @cinza-claro;
-		padding-right: 35px;
-		padding-left: 65px;
-		text-align: right;
+	.atracao {
+		margin: 15px 0 40px 0;
 
-		.atracao-foto {
-			background-size: cover;
-			height: 385px;
-			margin-top: 20px;
-			min-width: 385px;
-		}
+		.coluna-esquerda {
+			padding-right: 35px;
+			padding-left: 65px;
+			text-align: right;
 
-		.atracao-ficha {
-			background: @quase-branco;
-			border-bottom: 3px solid @azul-claro;
-			padding: 30px;
-			min-width: 385px;
-
-			h3 {
-				margin-top: 0;
-				font-size: @font-size-h3;
+			.atracao-foto {
+				height: 385px;
+				margin-top: 20px;
+				min-width: 385px;
 			}
-		}
-	}
 
-	.coluna-direita {
-		padding-left: 35px;
-		padding-right: 65px;
-		position: relative;
+			.atracao-ficha {
+				background: @quase-branco;
+				border-bottom: 3px solid @azul-claro;
+				padding: 30px;
+				min-width: 385px;
 
-		.horario-ponto {
-			border-radius: 30px;
-			width: 30px;
-			height: 30px;
-			border: 9px solid @branco;
-			margin-top: 50px;
-			position: absolute;
-			left: -16px;
-		}
-
-		.horario-marcador {
-			position: absolute;
-			left: -100px;
-			top: 47px;
-			background: @branco;
-			padding: 5px 20px 5px 10px;
-
-			p {
-				font-size: @font-size-small;
-				margin: 0;
-				font-weight: bold;
+				h3 {
+					margin-top: 0;
+					font-size: @font-size-h3;
+				}
 			}
 		}
 
-		h2 {
-			color: @vermelho;
-			font-size: @font-size-h4;
-			margin-top: 54px;
+		.coluna-direita {
+			padding-left: 35px;
+			padding-right: 65px;
+			position: relative;
+
+			.horario-ponto {
+				border-radius: 30px;
+				width: 30px;
+				height: 30px;
+				border: 9px solid @branco;
+				margin-top: 50px;
+				position: absolute;
+				left: -15px;
+			}
+
+			.horario-marcador {
+				position: absolute;
+				left: -100px;
+				top: 47px;
+				background: @branco;
+				padding: 5px 20px 5px 10px;
+
+				p {
+					font-size: @font-size-small;
+					margin: 0;
+					font-weight: bold;
+				}
+			}
+
+			h2 {
+				color: @vermelho;
+				font-size: @font-size-h4;
+				margin-top: 54px;
+			}
 		}
 	}
 }
