@@ -20,6 +20,12 @@
 	}
 }
 
+.dia-voltar {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
 .vs-container {
 	position: relative;
 	width: 100%;
@@ -299,7 +305,6 @@
 
 .manha {
 	background: @manha;
-	padding-top: 6px;
 }
 
 .tarde {
@@ -331,6 +336,17 @@
 		margin: 0 auto;
 		text-align: center;
 		border: 10px solid @branco;
+		padding-top: 7px;
+
+		&.manha {
+			padding-top: 6px;
+		}
+
+		&.noite {
+			img {
+				width: 20px;
+			}
+		}
 
 		img {
 			width: 30px;
@@ -396,7 +412,43 @@
 			h2 {
 				color: @vermelho;
 				font-size: @font-size-h4;
-				margin-top: 54px;
+				line-height: 1.5em;
+				margin-top: 49px;
+				display: block;
+				max-width: 340px;
+			}
+
+			.editar-dia {
+				position: absolute;
+				right: -30px;
+				top: 47px;
+				background: @branco;
+				padding: 6px 20px 7px 10px;
+				z-index: 502;
+
+				a {
+					color: @vermelho;
+					font-size: @font-size-small;
+					padding-left: 15px;
+					display: block;
+					float: left;
+					margin-left: 15px;
+					color: @vermelho;
+					.transition(color 0.3s);
+
+					&:hover {
+						text-decoration: none;
+						color: darken(@vermelho, 40%);
+					}
+				}
+
+				.link-editar {
+					background: url("../imgs/editar.svg") left center no-repeat;					
+				}
+
+				.link-apagar {
+					background: url("../imgs/apagar.svg") left center no-repeat;					
+				}
 			}
 		}
 	}
