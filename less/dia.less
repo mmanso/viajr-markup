@@ -35,11 +35,13 @@
 		position: relative;
 		z-index: 200;
 		margin: 0 auto;
-		padding: 2em;
+		padding: 1em;
 		width: 80%;
 		-webkit-backface-visibility: hidden;
-		background: url("http://api.ning.com/files/DmWKX8GKoMmcESxL7zkL5KfvPP592ErjWqm5wERGhBStJyJOcJ4q-EWrFf9mrZT1dAeVgDxecKdSDV70rYb13Ay0gWevhcpK/riodejaneiro.jpg") center center;	
-		background-size: cover;
+
+		@media (min-width: @screen-sm-min) {
+			padding: 2em;
+		}
 
 		&:before {
 			content: "";
@@ -53,6 +55,11 @@
 			bottom: -10px;
 			left: 49.2%;
 			.opacity(.5);
+			display: none;
+
+			@media (min-width: @screen-sm-min) {
+				display: block;
+			}
 		}
 
 		&:after {
@@ -70,8 +77,13 @@
 		h1 {
 			-webkit-backface-visibility: hidden;
 			color: @branco;
-			font-size: @font-size-h1;
-			margin: 15px 0;
+			font-size: @font-size-h2;
+			margin-top: 70px;
+
+			@media (min-width: @screen-sm-min) {
+				margin: 15px 0;
+				font-size: @font-size-h1;
+			}
 
 			span {
 				color: @cinza-claro;
@@ -357,21 +369,35 @@
 		margin: 15px 0 40px 0;
 
 		.coluna-esquerda {
-			padding-right: 35px;
-			padding-left: 65px;
 			text-align: right;
+
+			@media (min-width: @screen-sm-min) {
+				padding: 0 5%;
+			}
+
+			@media (min-width: @screen-md-min) {
+				padding-right: 35px;
+				padding-left: 25px;
+			}
+
+			@media (min-width: @screen-lg-min) {
+				padding-left: 65px;
+			}
 
 			.atracao-foto {
 				height: 385px;
 				margin-top: 20px;
-				min-width: 385px;
 			}
 
 			.atracao-ficha {
 				background: @quase-branco;
 				border-bottom: 3px solid @azul-claro;
 				padding: 30px;
-				min-width: 385px;
+				text-align: center;
+
+				@media (min-width: @screen-md-min) {
+					text-align: right;
+				}
 
 				h3 {
 					margin-top: 0;
@@ -382,8 +408,19 @@
 
 		.coluna-direita {
 			padding-left: 35px;
-			padding-right: 65px;
+			padding-right: 35px;
 			position: relative;
+			background: @branco;
+			padding-top: 20px;
+
+			@media (min-width: @screen-md-min) {
+				background: none;
+				padding-top: 0;
+			}
+
+			@media (min-width: @screen-lg-min) {
+				padding-right: 65px;				
+			}
 
 			.horario-ponto {
 				border-radius: 30px;
@@ -393,14 +430,30 @@
 				margin-top: 50px;
 				position: absolute;
 				left: -15px;
+				display: none;
+
+				@media (min-width: @screen-md-min) {
+					display: block;
+				}
 			}
 
 			.horario-marcador {
 				position: absolute;
-				left: -100px;
-				top: 47px;
 				background: @branco;
 				padding: 5px 20px 5px 10px;
+				width: 65px;
+				right: 0;
+				top: -564px;
+
+				@media (min-width: @screen-sm-min) {
+					right: 30px;
+					top: -504px;
+				}
+
+				@media (min-width: @screen-md-min) {
+					left: -100px;
+					top: 47px;
+				}
 
 				p {
 					font-size: @font-size-small;
@@ -413,18 +466,25 @@
 				color: @vermelho;
 				font-size: @font-size-h4;
 				line-height: 1.5em;
-				margin-top: 49px;
+				margin-top: 48px;
 				display: block;
-				max-width: 340px;
+
+				@media (min-width: @screen-md-min) {
+					font-size: @font-size-h3;
+					line-height: 1.3em;
+				}
 			}
 
 			.editar-dia {
 				position: absolute;
-				right: -30px;
-				top: 47px;
-				background: @branco;
+				left: 10px;
+				top: 30px;
 				padding: 6px 20px 7px 10px;
 				z-index: 502;
+
+				@media (min-width: @screen-md-min) {
+					top: 10px;
+				}
 
 				a {
 					color: @vermelho;
@@ -451,51 +511,5 @@
 				}
 			}
 		}
-	}
-}
-
-/* Media queries */
-@media screen and (max-width: 72.875em) {
-
-	.vs-header,
-	.vs-wrapper {
-		font-size: 80%;
-	}
-
-	.vs-content {
-		width: 85%;
-	}
-
-	.vs-content h2 {
-		font-size: 1.8em;
-	}
-
-	.vs-nav li a {
-		width: 160px;
-	}
-}
-
-@media screen and (max-width: 45.25em) {
-
-	.vs-container > header h1 {
-		margin-bottom: 0;
-	}
-
-	.vs-content h2 {
-		margin: 0 0 1em;
-	}
-
-	.vs-wrapper {
-		font-size: 80%;
-	}
-
-	.vs-triplelayout .vs-nav li a {
-		width: auto;
-		font-size: 70%;
-	}
-
-	.vs-wrapper > section {
-		background-position: 0 28em;
-		background-size: 100%;
 	}
 }
